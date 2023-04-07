@@ -102,19 +102,19 @@ class WandbLogger(BaseLogger):
         **kwargs
     ):
         super().__init__(data_path, **kwargs)
-        self.entity = wandb_entity
+        # self.entity = wandb_entity
         self.project = wandb_project
         self.run_id = wandb_run_id
         self.run_name = wandb_run_name
 
     def init(self, full_config: BaseModel, extra_config: dict, **kwargs) -> None:
-        assert self.entity is not None, "wandb_entity must be specified for wandb logger"
+        # assert self.entity is not None, "wandb_entity must be specified for wandb logger"
         assert self.project is not None, "wandb_project must be specified for wandb logger"
         self.wandb = import_or_print_error('wandb', '`pip install wandb` to use the wandb logger')
         os.environ["WANDB_SILENT"] = "true"
         # Initializes the wandb run
         init_object = {
-            "entity": self.entity,
+            # "entity": self.entity,
             "project": self.project,
             "config": {**full_config.dict(), **extra_config}
         }

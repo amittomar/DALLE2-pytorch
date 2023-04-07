@@ -41,7 +41,7 @@
         "meta_url": "<path to your metadata>",
         "splits": {
             "train": 0.8,
-            "val":  0.1,
+            "val": 0.1,
             "test": 0.1
         }
     },
@@ -56,7 +56,10 @@
         "warmup_steps": 50,
         "amp": false,
         "save_every_seconds": 3600,
-        "eval_timesteps": [64, 1000],
+        "eval_timesteps": [
+            64,
+            1000
+        ],
         "random_seed": 84513
     },
     "tracker": {
@@ -64,10 +67,15 @@
         "overwrite_data_path": true,
         "log": {
             "log_type": "wandb",
-            "wandb_entity": "<your wandb username>",
             "wandb_project": "prior_debugging",
-            "wandb_resume": false,
-            "verbose": true
+            "wandb_host": "localhost",
+            "base_url": "http://localhost:8080",
+            "wandb_entity": "Pr",
+            "wandb_resume": true,
+            "wangdb_run_name": "clip_Prior",
+            "verbose": true,
+            "offline": true,
+            "verify": true
         },
         "save": [
             {
